@@ -31,7 +31,7 @@ def scrape_steam_games(pages=1):
                 price = "Free" if "free" in game.text.lower() else "Unknown"
             discount = price_element["data-discount"] + "%" if price_element and "data-discount" in price_element.attrs else "0%"
 
-            print(f"🔹 {title} | Price: {price} | Discount: {discount}")
+            print(f" {title} | Price: {price} | Discount: {discount}")
 
             game_data.append({"Title": title, "Price": price, "Discount": discount})
 
@@ -47,9 +47,9 @@ df["Price"] = df["Price"].replace("Free", "0").str.replace("€", "", regex=Fals
 df["Discount"] = df["Discount"].str.replace("%", "", regex=False).astype(int)
 
 print("\n Choose sorting option:")
-print("1️  Discount (highest to lowest)")
-print("2️  Price (lowest to highest)")
-print("3️  Name (A-Z)")
+print("1  Discount (highest to lowest)")
+print("2  Price (lowest to highest)")
+print("3  Name (A-Z)")
 
 choice = input("\nEnter your choice (1-3): ")
 
